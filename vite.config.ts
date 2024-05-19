@@ -14,7 +14,7 @@ export default defineConfig({
         lib: {
           entry: resolve(__dirname, "lib/main.ts"),
           formats: ["es"],
-          name: "scrollbar-react",
+          name: "use-measure-react",
         },
         rollupOptions: {
           external: ["react", "react/jsx-runtime"],
