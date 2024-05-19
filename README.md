@@ -1,31 +1,62 @@
-# React + TypeScript + Vite
+# use-measure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React hook for measuring elements.
 
-Currently, two official plugins are available:
+## Install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+npm install @darwish/use-measure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# use-measure-react
+## Usage
+
+```jsx
+import React, { useState } from "react";
+import useMeasure from "@darwish/use-measure";
+
+
+function App() {
+  const [ref, bounds: { width, height, top, left, bottom, right, x, y, scrollX, scrollY }] = useMeasure();
+  return (  
+    <div ref={ref}>
+      <p>Width: {width}</p>
+      <p>Height: {height}</p>
+      <p>Top: {top}</p>
+      <p>Left: {left}</p>
+      <p>Bottom: {bottom}</p>
+      <p>Right: {right}</p>
+      <p>X: {x}</p>
+      <p>Y: {y}</p>
+      <p>Scroll X: {scrollX}</p>
+      <p>Scroll Y: {scrollY}</p>
+    </div>
+  );
+}
+
+```
+
+## API
+
+### useMeasure()
+
+Returns a tuple containing a ref object and an object containing the measurements of the element.
+
+- `ref`: A ref object that should be attached to the element you want to measure.
+- `bounds`: An object containing the measurements of the element.
+  - `width`: The width of the element.
+  - `height`: The height of the element.
+  - `top`: The top position of the element relative to the viewport.
+  - `left`: The left position of the element relative to the viewport.
+  - `bottom`: The bottom position of the element relative to the viewport.
+  - `right`: The right position of the element relative to the viewport.
+  - `x`: The horizontal center position of the element relative to the viewport.
+  - `y`: The vertical center position of the element relative to the viewport.
+  - `scrollX`: The horizontal scroll position of the viewport.
+  - `scrollY`: The vertical scroll position of the viewport.
+
+
+## License
+
+MIT © [@LonelyFellas](https://github.com/LonelyFellas)
+
