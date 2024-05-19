@@ -5,7 +5,7 @@ React hook for measuring elements.
 ## Install
 
 ```
-npm install @darwish/use-measure
+npm install @darwish/use-measure-react
 
 ```
 
@@ -13,7 +13,7 @@ npm install @darwish/use-measure
 
 ```jsx
 import React, { useState } from "react";
-import useMeasure from "@darwish/use-measure";
+import useMeasure from "@darwish/use-measure-react";
 
 
 function App() {
